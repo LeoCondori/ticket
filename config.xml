@@ -11,22 +11,42 @@
 	</description>
 
 
-	<preference name="phonegap-version" value="cli-5.2.0" />
-
+	<!--<preference name="phonegap-version" value="cli-5.2.0" />-->>
+	
+<content src="www/index.html"/>
+  <preference name="phonegap-version" value="cli-5.2.0" />
+  <preference name="permissions" value="none"/>
+  <!--<preference name="orientation" value="portrait"/>-->
+  <preference name="target-device" value="universal"/>
+  <!--<preference name="fullscreen" value="false"/>-->
+  <preference name="android-windowSoftInputMode" value="adjustResize"/>
+  <preference name="webviewbounce" value="true"/>
+  <preference name="prerendered-icon" value="true"/>
+  <preference name="stay-in-webview" value="false"/>
+  <preference name="ios-statusbarstyle" value="black-opaque"/>
+  <preference name="detect-data-types" value="true"/>
+  <preference name="exit-on-suspend" value="false"/>
+  <preference name="show-splash-screen-spinner" value="true"/>
+  <preference name="auto-hide-splash-screen" value="false"/>
+  <preference name="SplashScreen" value="splash" />
+  <preference name="disable-cursor" value="false"/>
+  <preference name="android-minSdkVersion" value="7"/>
+  <preference name="android-installLocation" value="auto"/>
+  <preference name="fullscreen" value="true" />
+  <preference name="splash-screen-duration" value="20000" />
+	
+	<gap:splash src="img/splash.png" />
+	<!--<preference name="exit-on-suspend" value="true" />-->
+	<!--<preference name="android-minSdkVersion" value="5" />-->
+	<!--<preference name="android-targetSdkVersion" value="19" />-->
+	<!--<preference name="android-maxSdkVersion" value="19" />-->
 	<gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
 	<gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
-
-	<preference name="fullscreen" value="true" />
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />	
+	
 	<icon src="img/icon_gde.png" />
-	<gap:splash src="img/splash.png" />
-
-	<preference name="splash-screen-duration" value="20000" />
-	<preference name="exit-on-suspend" value="true" />
-	<preference name="android-minSdkVersion" value="5" />
-	<preference name="android-targetSdkVersion" value="19" />
-	<preference name="android-maxSdkVersion" value="19" />
-
+	
 	<author href="http://www.itris.com.ar" email="lcondori@itris.com.ar">
 	@itrissoftware
 	</author>

@@ -32,7 +32,7 @@
   <preference name="android-minSdkVersion" value="7"/>
   <preference name="android-installLocation" value="auto"/>
   <preference name="fullscreen" value="true" />
-  <preference name="splash-screen-duration" value="20000" />
+  <preference name="splash-screen-duration" value="80000" />
 	
 	<gap:splash src="img/splash.png" />
 	<!--<preference name="exit-on-suspend" value="true" />-->

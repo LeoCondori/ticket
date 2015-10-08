@@ -43,8 +43,39 @@
 
 	<!-- Mi javascript phonegap -->
 	<script  src="phonegap.js"></script>
-	<script  src="js/mipropiojava.js"></script>	
-
+	<script  src="js/mipropiojava.js"></script>
+		
+	<style>
+	#mensaje1{
+		display: none;
+	}
+	#mensaje2{
+		display: none;
+	}
+	</style>
+	
+  <script>  
+	$(document).ready(function(){	
+		$("#bEnviar").click(function(){
+			var email = $("#email").val();
+			var ticketno = $("#ticketno").val();
+			
+			if(email == ""){	
+				$("#mensaje1").fadeIn();
+				$("#mensaje1").fadeOut(6500);
+				return false;
+				}else{
+					$("#mensaje1").fadeOut();
+					if(ticketno == ""){
+						$("#mensaje2").fadeIn();
+						$("#mensaje2").fadeOut(6500);
+						return false;
+						}
+					}		
+		});	
+	});
+  </script>	
+	
   	<!--DATOS PERSONALES Envia datos a otra página y devuelve resultado-->
 	<script src="js/jquery-1.10.2.js"></script>	
 	<!-- CONTACTO -->	
@@ -131,10 +162,12 @@
 								<div>
 									<label for="email">E-Mail:</label>
 									<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email" size="30" title="El email es obligatorio" required>
+									<div id="mensaje1"><span class="label label-warning">El email no puede estar vacío.</span></div>
 								</div>
 								<div>
 									<label for="ticketno">Número de Ticket:</label>
 									<input class="form-control" id="ticketno" type="text" name="ticketno" pattern=".{5,}" maxlength="5" placeholder="ej. 51243" Title="El número de ticket es obligatorio y debe contener 5 números" required>
+									<div id="mensaje2"><span class="label label-warning">El número de novedad debe tener un valor.</span></div>
 								</div>
 								<div>
 								<p>
@@ -154,7 +187,7 @@
 					</form>
 					<br>
 					<p style="margin:0px 15px 40px 15px;">
-					Si usted no está dado de alta deberá registrarse <a href="http://itris.com.ar/site/acceso-a-tickets/"> aquí </a></p>
+					Si usted no está dado de alta deberá registrarse <a href="http://itris.com.ar/site/acceso-a-tickets/" target="_blank"> aquí </a></p>
 
 					</div>
 				</div>
@@ -180,7 +213,7 @@
             <div class="social-icons">
                 <ul>
                     <!--<li> <a href="#"> <i class="icon-facebook"></i> </a> </li>-->
-                    <li> <a href="https://twitter.com/itrissoftware"> <i class="icon-twitter"></i> </a> </li>
+                    <li> <a href="https://twitter.com/itrissoftware" target="_blank"> <i class="icon-twitter"></i> </a> </li>
                     <!--<li> <a href="#"> <i class="icon-google-plus"></i> </a> </li>-->                        
                     <!--<li> <a href="#"> <i class="icon-linkedin"></i> </a> </li>-->
                     <!--<li> <a href="#"> <i class="icon-github"></i> </a> </li>-->

@@ -9,7 +9,7 @@ echo '
 				<p>'.$email.'</p>
 				<p>'.$ticket.'</p>
 				<p>
-					<a class="btn btn-default" href="index.html" role="button">Volver</a>
+					<button class="button" type="button" onclick="MostrarForm()"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> Volver</button>
 				</p>
 			</div>
 	</div>

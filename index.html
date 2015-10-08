@@ -51,11 +51,11 @@
 		<script language="javascript">
 		  $(document).ready(function() {
 		   $(document).ajaxStart(function() {
-		   $('#conecto').show();
+		   $('#formulario').hide();
 	       $('#resultado').hide();
 
 			}).ajaxStop(function() {
-			$('#conecto').hide();
+			$('#formulario').hide();
 			$('#resultado').fadeIn('slow');
 			});
 		  $('#form, #fat, #clientLogin').submit(function() {
@@ -72,7 +72,12 @@
 			})  
 			return false;
 			 }); 
-			})  
+			})
+
+		function MostrarForm(){
+		    $('#resultado').hide();
+			$('#formulario').show();
+		}
 		</script>	
 </head>
 <body onload="onBodyLoad()">
@@ -120,16 +125,16 @@
 					</div>
 				
 					<form class="form-group" action="http://www.leocondori.com.ar/app/ticket/status.php" method="post" id="clientLogin" name="clientLogin">          
-                        <div class="row" id="resultado">
+                        <div class="row" id="formulario">
 							<div class="login-box col-md-6">
 								<div><strong></strong></div>
 								<div>
-									<label for="email">E-Mail:
-									<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email" size="30" title="El email es obligatorio" required></label>
+									<label for="email">E-Mail:</label>
+									<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email" size="30" title="El email es obligatorio" required>
 								</div>
 								<div>
-									<label for="ticketno">Número de Ticket:
-									<input class="form-control" id="ticketno" type="text" name="ticketno" pattern=".{5,}" maxlength="5" placeholder="ej. 51243" Title="El número de ticket es obligatorio y debe contener 5 números" required></label>
+									<label for="ticketno">Número de Ticket:</label>
+									<input class="form-control" id="ticketno" type="text" name="ticketno" pattern=".{5,}" maxlength="5" placeholder="ej. 51243" Title="El número de ticket es obligatorio y debe contener 5 números" required>
 								</div>
 								<div>
 								<p>
@@ -144,6 +149,7 @@
 									<a href="login.html">Sign In</a> or <a href="account.html?do=create"> register for an account </a> to access all your tickets.                </div>
 							</div>-->
 						</div>
+						<div id="resultado"></div>
 
 					</form>
 					<br>

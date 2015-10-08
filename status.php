@@ -2,7 +2,6 @@
 $email = $_POST["email"];
 $ticket = $_POST["ticketno"];
 
-
 echo '
 	<div class="login-box col-md-6">
 		<div><strong>Holis</strong></div>

@@ -21,7 +21,7 @@
 	<icon src="img/icon_gde.png" />
 	<gap:splash src="img/splash.png" />
 
-	<preference name="splash-screen-duration" value="50000" />
+	<preference name="splash-screen-duration" value="20000" />
 	<preference name="exit-on-suspend" value="true" />
 	<preference name="android-minSdkVersion" value="5" />
 	<preference name="android-targetSdkVersion" value="19" />

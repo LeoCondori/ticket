@@ -11,7 +11,7 @@
 	</description>
 
 
-	<preference name="phonegap-version" value="3.6.3" />
+	<preference name="phonegap-version" value="5.2.0" />
 
 	<gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />

@@ -14,7 +14,7 @@
 	<!--<preference name="phonegap-version" value="cli-5.2.0" />-->>
 	
 <content src="index.html"/>
-  <preference name="phonegap-version" value="cli-5.2.0" />
+  <preference name="phonegap-version" value="3.6.3" />
   <preference name="permissions" value="none"/>
   <!--<preference name="orientation" value="portrait"/>-->
   <preference name="target-device" value="universal"/>
@@ -23,9 +23,8 @@
   <preference name="webviewbounce" value="true"/>
   <preference name="prerendered-icon" value="true"/>
   <preference name="stay-in-webview" value="false"/>
-  <preference name="ios-statusbarstyle" value="black-opaque"/>
   <preference name="detect-data-types" value="true"/>
-  <preference name="exit-on-suspend" value="false"/>
+  <preference name="exit-on-suspend" value="true"/>
   <preference name="show-splash-screen-spinner" value="true"/>
   <preference name="auto-hide-splash-screen" value="false"/>
   <preference name="SplashScreen" value="splash" />

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Amper theme</title>
+    <meta name="description" content="customer support platform">
+    <meta name="keywords" content="osTicket, Customer support system, support ticket system">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+	<link rel="stylesheet" href="css/osticket.css" media="screen">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/typeahead.css" media="screen" />
+    <link type="text/css" href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="css/thread.css" media="screen">
+    <link rel="stylesheet" href="css/redactor.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/flags.css">
+    <link type="text/css" rel="stylesheet" href="css/rtl.css"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'> <!-- Lato - Google font -->
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">        
+    <link rel="stylesheet" href="css/theme.css" media="screen">
+
+	<!-- Latest compiled and minified CSS -->
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
+	
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/osticket.js"></script>
+    <script type="text/javascript" src="js/filedrop.field.js"></script>
+    <script type="text/javascript" src="js/jquery.multiselect.min.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript" src="js/redactor.min.js"></script>
+    <script type="text/javascript" src="js/redactor-osticket.js"></script>
+    <script type="text/javascript" src="js/redactor-fonts.js"></script>
+    <script type="text/javascript" src="js/custom.js?c18eac4"></script>
+
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="container">
+        <div id="header">
+            <div class="container">
+                <a class="col-md-4" id="logo" href="index.html" title="Support Center">
+                    <span class="valign-helper"></span>
+                    <img src="img/logo.png" border=0 alt="Amper theme">
+                </a>
+                <div class="col-md-8 top-right">
+					<p>Guest User | <a href="login.html">Sign In</a></p>
+					<p></p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+			<div class="main-menu">
+				<div class="container">
+					<div class="nav-toggle"><i class="icon-align-justify"></i></div>
+					<ul id="nav" class="col-md-12">
+						<li><a class="active home" href="index.html">Support Center Home</a></li>
+						<li><a class=" kb" href="kb.html">Knowledgebase</a></li>
+						<li><a class=" new" href="new.html">Open a New Ticket</a></li>
+						<li><a class=" status" href="view.html">Check Ticket Status</a></li>
+					</ul>
+				</div>
+			</div>
+        <div id="content">
+        <div class="container"> 
+			<div class="row"> 
+				<div class="col-md-12"></div>
+			</div>
+		</div>
+<div class="container"> 
+    <div class="row"> 
+        <div class="col-md-12"> 
+            <div class="page-title">
+				<h1>Account Registration</h1>
+				<p>Use the forms below to create or update the information we have on file for your account</p>
+            </div>
+            <form class="register-form" action="account.html" method="post">
+              <input type="hidden" name="__CSRFToken__" value="bf2e51288a593fb0acaabbb09cda644159dcc314" />              
+			  <input type="hidden" name="do" value="create" />
+           
+		<div class="form-header">
+			<h3>Contact Information</h3>
+			<span></span>
+		</div>
+		<table width="100%">
+			<tr class="form-group">
+				<td>
+					<label for="054bfb5ea95cbabb" class="required">Email Address:<font class="error">*</font></label>
+				<br>
+				<span>
+					<input class="form-control" type="text" id="_054bfb5ea95cbabb" size="40" maxlength="64" placeholder="" name="054bfb5ea95cbabb" value=""/>
+				</span>
+						
+				</td>
+			</tr>
+			<tr class="form-group">
+				<td>
+					<label for="0e1d5bd160349858" class="required">Full Name:<font class="error">*</font></label>
+				<br>
+					<span><input class="form-control" type="text" id="_0e1d5bd160349858" size="40" maxlength="64" placeholder="" name="0e1d5bd160349858" value=""/></span>
+								
+				</td>
+			</tr>
+			<tr class="form-group">
+				<td>
+					<label for="4d89a9423208c68b" class="">Phone Number:</label>
+				<br>
+					<input class="form-control" id="_4d89a9423208c68b" type="text" name="4d89a9423208c68b" value=""/> Ext:
+					<input class="form-control" type="text" name="4d89a9423208c68b-ext" value="" size="5"/>				
+				</td>
+			</tr>
+		</table>
+		<div class="form-header">
+			<h3> Preferences </h3>
+		</div>
+		<table width="100%">
+		<tr class="form-group">
+			<td colspan="2">
+				<label>Time Zone:</label><br>
+				<select class="form-control" name="timezone_id" id="timezone_id">
+					<option value="1" >GMT -12.0 - Eniwetok, Kwajalein</option><option value="2" >GMT -11.0 - Midway Island, Samoa</option><option value="3" >GMT -10.0 - Hawaii</option><option value="4" >GMT -9.0 - Alaska</option><option value="5" >GMT -8.0 - Pacific Time (US & Canada)</option><option value="6" >GMT -7.0 - Mountain Time (US & Canada)</option><option value="7" >GMT -6.0 - Central Time (US & Canada), Mexico City</option><option value="8" selected="selected">GMT -5.0 - Eastern Time (US & Canada), Bogota, Lima</option><option value="9" >GMT -4.0 - Atlantic Time (Canada), Caracas, La Paz</option><option value="10" >GMT -3.5 - Newfoundland</option><option value="11" >GMT -3.0 - Brazil, Buenos Aires, Georgetown</option><option value="12" >GMT -2.0 - Mid-Atlantic</option><option value="13" >GMT -1.0 - Azores, Cape Verde Islands</option><option value="14" >GMT 0.0 - Western Europe Time, London, Lisbon, Casablanca</option><option value="15" >GMT 1.0 - Brussels, Copenhagen, Madrid, Paris</option><option value="16" >GMT 2.0 - Kaliningrad, South Africa</option><option value="17" >GMT 3.0 - Baghdad, Riyadh, Moscow, St. Petersburg</option><option value="18" >GMT 3.5 - Tehran</option><option value="19" >GMT 4.0 - Abu Dhabi, Muscat, Baku, Tbilisi</option><option value="20" >GMT 4.5 - Kabul</option><option value="21" >GMT 5.0 - Ekaterinburg, Islamabad, Karachi, Tashkent</option><option value="22" >GMT 5.5 - Bombay, Calcutta, Madras, New Delhi</option><option value="23" >GMT 6.0 - Almaty, Dhaka, Colombo</option><option value="24" >GMT 7.0 - Bangkok, Hanoi, Jakarta</option><option value="25" >GMT 8.0 - Beijing, Perth, Singapore, Hong Kong</option><option value="26" >GMT 9.0 - Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option><option value="27" >GMT 9.5 - Adelaide, Darwin</option><option value="28" >GMT 10.0 - Eastern Australia, Guam, Vladivostok</option><option value="29" >GMT 11.0 - Magadan, Solomon Islands, New Caledonia</option><option value="30" >GMT 12.0 - Auckland, Wellington, Fiji, Kamchatka</option>                    </select>
+				&nbsp;<span class="error"></span>
+			</td>
+		</tr>
+		<tr>
+			<td width="180">
+			   <label> Daylight Saving:</label>
+			</td>
+			<td>
+				<input type="checkbox" name="dst" value="1" >Observe daylight saving <em>(Current Time: <strong>09/16/2015 11:20 am</strong>)</em>
+			</td>
+		</tr>
+		</table>
+		
+		<div class="form-header">
+			<h3>Access Credentials</h3>
+		</div>
+		
+            <table width="100%">
+            <tr class="form-group">
+                 <td colspan="2">
+                    <label> Create a Password: </label>
+                    <input class="form-control" type="password" size="18" name="passwd1" value="">
+                    &nbsp;<span class="error">&nbsp;</span>
+                </td>
+            </tr>
+            <tr class="form-group">
+                <td colspan="2">
+                   <label>Confirm New Password:</label> 
+                    <input class="form-control" type="password" size="18" name="passwd2" value="">
+                    &nbsp;<span class="error">&nbsp;</span>
+                </td>
+            </tr>
+            </table>
+            <hr>
+            <p>
+                <input class="button" type="submit" value="Register"/>
+                <input class="button cancel" type="button" value="Cancel" onclick="javascript: window.location.href='index.html';"/>
+            </p>
+            </form>
+        </div>
+    </div>
+</div>
+        </div>
+  </div>
+
+    <!-- Editable section  -->
+
+    <div class="company-info">
+        <div class="container"><div class="row">
+            <div class="contact-info">
+                <h3> Company Name </h3>
+                <p> 
+                    221, 2nd floor <br>
+                    Baker street, London,<br>
+                    England
+                </p>
+
+                <div> <span> 1800-1234-456 </span>  <span> company@email.com </span></div> 
+            </div>
+
+            <div class="social-icons">
+                <ul>
+                    <li> <a href="#"> <i class="icon-facebook"></i> </a> </li>
+                    <li> <a href="#"> <i class="icon-twitter"></i> </a> </li>
+                    <li> <a href="#"> <i class="icon-google-plus"></i> </a> </li>                        
+                    <li> <a href="#"> <i class="icon-linkedin"></i> </a> </li>
+                    <li> <a href="#"> <i class="icon-github"></i> </a> </li>
+                </ul>
+            </div>
+
+        </div></div>
+    </div>
+
+   <!-- Editable section ends -->
+
+    <div id="footer">
+        <div class="container"><div class="row"> 
+            <div class="col-md-12">
+                <p>Copyright &copy; 2015 Amper theme - All rights reserved.</p>
+                <a id="poweredBy" href="http://osticket.com" target="_blank">Helpdesk software - powered by osTicket</a>               
+            </div>
+
+        </div></div>
+    </div>
+
+ </div> <!-- end wrapper -->
+<div id="overlay"></div>
+<div id="loading">
+    <h4>Please Wait!</h4>
+    <p>Please wait... it will take a second!</p>
+</div>
+
+</body>
+</html>

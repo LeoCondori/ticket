@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+		xmlns:gap = "http://phonegap.com/ns/1.0"
+		id        = "com.itspedidos.app"
+		version   = "1.0.44">
+
+	<name>ItsClient</name>
+
+	<description>
+	ItsClient es una aplicacion que te permite grabar pedidos con tu celular en Itris Software.
+	</description>
+
+
+	<preference name="phonegap-version" value="3.6.3" />
+
+	<gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+	<gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+
+	<preference name="fullscreen" value="true" />
+	<icon src="img/icon_gde.png" />
+	<gap:splash src="img/splash.png" />
+
+	<preference name="splash-screen-duration" value="20000" />
+	<preference name="exit-on-suspend" value="true" />
+	<preference name="android-minSdkVersion" value="5" />
+	<preference name="android-targetSdkVersion" value="19" />
+	<preference name="android-maxSdkVersion" value="19" />
+
+	<author href="http://www.leocondori.com.ar" email="contacto@leocondori.com.ar">
+	@leocondori
+	</author>
+
+</widget>

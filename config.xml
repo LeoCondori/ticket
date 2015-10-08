@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "com.itspedidos.app"
-		version   = "1.0.44">
+		id        = "com.iticket.app"
+		version   = "1.0.1">
 
-	<name>ItsClient</name>
+	<name>iTicket 2.0</name>
 
 	<description>
-	ItsClient es una aplicacion que te permite grabar pedidos con tu celular en Itris Software.
+	Consulte el estado de sus ticket's de forma ágil, rápida y sencilla.
 	</description>
 
 
@@ -27,8 +27,8 @@
 	<preference name="android-targetSdkVersion" value="19" />
 	<preference name="android-maxSdkVersion" value="19" />
 
-	<author href="http://www.leocondori.com.ar" email="contacto@leocondori.com.ar">
-	@leocondori
+	<author href="http://www.itris.com.ar" email="lcondori@itris.com.ar">
+	@itrissoftware
 	</author>
 
 </widget>

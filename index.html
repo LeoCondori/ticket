@@ -7,8 +7,10 @@
     <meta name="description" content="customer support platform">
     <meta name="keywords" content="osTicket, Customer support system, support ticket system">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-
+    
+	<script src="js/jquery-1.5.2.min.js"></script>
+	<script src="js/jquery.maskedinput-1.3.min.js"></script>
+	
 	<link rel="stylesheet" href="css/osticket.css" media="screen">
     <link rel="stylesheet" href="css/print.css" media="print">
     <link rel="stylesheet" href="css/typeahead.css" media="screen" />
@@ -25,6 +27,8 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<!-- Optional theme -->
+
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
@@ -43,6 +47,14 @@
 	<!-- Mi javascript phonegap -->
 	<script  src="phonegap.js"></script>
 	<script  src="js/mipropiojava.js"></script>	
+
+	<script>
+		jQuery(function($){
+		       $("#campoData").mask("99/99/9999");
+		       $("#campoTelefone").mask("(999) 999-9999");
+		       $("#ticketno").mask("99999");
+		});
+	</script>
 	
 </head>
 <body onload="onBodyLoad()">
@@ -88,18 +100,18 @@
 					<h1>Estado del ticket</h1>
 					<p>Verifique el estado de su ticket</p>
 					</div>
-
-					<form class="form-group" action="login.html" method="post" id="clientLogin">          
-                        <div class="row">
+				
+					<form class="form-group" action="http://leocondori.com.ar/app/status.php" method="post" id="clientLogin" name="clientLogin">          
+                        <div class="row" id="resultado">
 							<div class="login-box col-md-6">
 								<div><strong></strong></div>
 								<div>
 									<label for="email">E-Mail:
-									<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email" size="30" value=""></label>
+									<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email" size="30" title="El email es obligatorio" required></label>
 								</div>
 								<div>
 									<label for="ticketno">Número de Ticket:
-									<input class="form-control" id="ticketno" type="text" name="ticketno" placeholder="ej. 51243" size="30" value=""></label>
+									<input class="form-control" id="ticketno" type="text" name="ticketno" pattern=".{5,}" maxlength="5" placeholder="ej. 51243" Title="El número de ticket es obligatorio y debe contener 5 números" required></label>
 								</div>
 								<div>
 								<p>
@@ -168,9 +180,42 @@
  </div> <!-- end wrapper -->
 <div id="overlay"></div>
 <div id="loading">
-    <h4>Please Wait!</h4>
-    <p>Please wait... it will take a second!</p>
+    <h4>Por favor espere!</h4>
+    <p>Estamos resolviendo su consulta</p>
 </div>
+
+	<!--DATOS PERSONALES Envia datos a otra página y devuelve resultado-->
+	<script src="js/jquery-1.10.2.js"></script>	
+	<!--<script language="javascript" src="js/jquery-1.3.min.js"></script>-->
+
+	<!-- CONTACTO -->	
+		<script language="javascript">
+		  $(document).ready(function() {
+		   $(document).ajaxStart(function() {
+		   $('#conecto').show();
+	       $('#resultado').hide();
+
+			}).ajaxStop(function() {
+			$('#conecto').hide();
+			$('#resultado').fadeIn('slow');
+			});
+		  $('#form, #fat, #clientLogin').submit(function() {
+			$.ajax({
+				type: 'post',
+				url: $(this).attr('action'),
+				data: $(this).serialize(),
+				success: function(data) {
+				$('#resultado').fadeIn('slow');
+				$('#loading').hide();
+				$('#overlay').hide();			
+				$('#resultado').html(data);
+				}
+			})  
+			return false;
+			 }); 
+			})  
+		</script>
+
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.iticket.app"
-		version   = "2.0.38">
+		version   = "2.0.78">
 
 	<name>iTicket 2.0</name>
 

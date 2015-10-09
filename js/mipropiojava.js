@@ -41,6 +41,9 @@ function onDeviceReady(){
 	//Habilita la función del botón menú.
 	document.addEventListener("menubutton", onMenuKeyDown, false);
 	
+	//Verifico si es un usuario conocido
+	leerStorage();
+	
 }
 
 // Función activada. Botón Menú.
@@ -171,19 +174,39 @@ function cargaDatosSuccess(tx, results){
 */
 
 function submitForm(){
-	var _webs = $("[name='ws']").val();
-	var _base = $("[name='bd']").val();
-	var _users = $("[name='user']").val();
-	var _pass = $("[name='pass']").val();
-	
-	ws = window.localStorage.setItem("ws", _webs);
-	bd = window.localStorage.setItem("bd", _base);
-	user = window.localStorage.setItem("user", _users);
-	password = window.localStorage.setItem("password", _pass);
-	
+	var user = $("[name='email']").val();
+	window.localStorage.setItem("usuario", user);	
 	return false;
 }
+	
+function leerStorage(){
+     var usuario = window.localStorage.getItem("usuario");
 
+	  if(usuario == null){
+		  //var selector = $('#user');
+		  $('#user').html('<label for="email">E-Mail: </label>' +
+							'<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email"' + 
+							'size="30" title="El email es obligatorio" required>');
+		  //var userPanel=$('#userPanel');
+		  $('#userPanel').html('<p><small><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Usuario desconocido</small></p>');
+		  					
+		  }else{
+   		       //var selector=$('#user');
+				$('#user').html('<label for="email">E-Mail: </label>' +
+								'<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email"' + 
+								'size="30" value=" ' + usuario + '" title="El email es obligatorio" readonly required>');
+
+		  	  //var userPanel=$('#userPanel');
+			    $('#userPanel').html('<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> | <small> ' + usuario + ' </small>' + 
+							    '<button class="btn btn-info btn-xs" type="button" onclick="BorrarStorage()" class="button">' +
+							    '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> </button></p>');							  
+			  }	  	
+	}
+function BorrarStorage(){
+    	window.localStorage.removeItem("usuario");
+		window.location.href = "index.html";
+	}		
+	
 function datosConexion(){
 	alert('Este es el WebService: ' + window.localStorage.getItem("ws"));
 	alert('Esta es base de datos: ' + window.localStorage.getItem("bd"));

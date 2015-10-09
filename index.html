@@ -59,7 +59,7 @@
 		$("#bEnviar").click(function(){
 			var email = $("#email").val();
 			var ticketno = $("#ticketno").val();
-			
+			//userTemp(email);
 			if(email == ""){	
 				$("#mensaje1").fadeIn();
 				$("#mensaje1").fadeOut(6500);
@@ -108,6 +108,7 @@
 		function MostrarForm(){
 		    $('#resultado').hide();
 			$('#formulario').show();
+			leerStorage();
 		}
 		</script>	
 </head>
@@ -123,7 +124,7 @@
                     <span class="valign-helper"></span>
                     <img src="img/logo-rgb-itris.png" border=0 alt="Amper theme">
                 </a>
-                <div class="col-md-8 top-right">
+                <div class="col-md-8 top-right" id="userPanel">
 					<!--<p>Guest User | <a href="login.html">Sign In</a></p>
 					<p></p>-->
                 </div>
@@ -155,15 +156,13 @@
 					<p>Verifique el estado de su ticket</p>
 					</div>
 				
-					<form class="form-group" action="http://www.leocondori.com.ar/app/ticket/status.php" method="post" id="clientLogin" name="clientLogin">          
+					<form class="form-group" onsubmit="return submitForm()" action="http://www.leocondori.com.ar/app/ticket/status.php" method="post" id="clientLogin" name="clientLogin">          
                         <div class="row" id="formulario">
 							<div class="login-box col-md-6">
 								<div><strong></strong></div>
-								<div>
-									<label for="email">E-Mail:</label>
-									<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email" size="30" title="El email es obligatorio" required>
-									<div id="mensaje1"><span class="label label-warning">El email no puede estar vacío.</span></div>
+								<div id="user">
 								</div>
+								<div id="mensaje1"><span class="label label-warning">El email no puede estar vacío.</span></div>
 								<div>
 									<label for="ticketno">Número de Ticket:</label>
 									<input class="form-control" id="ticketno" type="text" name="ticketno" pattern=".{5,}" maxlength="5" placeholder="ej. 51243" Title="El número de ticket es obligatorio y debe contener 5 números" required>
@@ -171,8 +170,7 @@
 								</div>
 								<div>
 								<p>
-									<!--<input class="button" type="submit" value="Consultar">-->
-								<button type="submit" id="bEnviar" value="submit" class="button">Consultar</button>
+									<button type="submit" id="bEnviar" value="submit" class="button">Consultar</button>
 								</p>
 								</div>
 							</div>
@@ -183,7 +181,6 @@
 							</div>-->
 						</div>
 						<div id="resultado"></div>
-
 					</form>
 					<br>
 					<p style="margin:0px 15px 40px 15px;">

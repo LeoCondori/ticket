@@ -56,7 +56,7 @@ function ObtenerError($session){
 				$XMLData = $contacto["XMLData"];
 				
 				//GrabarArchivo($XMLData,'ItsGetData');
-				
+				$FK_ERP_EMPRESAS= '';
 				$xml = simplexml_load_string($XMLData);
 				foreach($xml->ROWDATA->ROW as $f=>$val){
 					$FK_ERP_EMPRESAS = $val['FK_ERP_EMPRESAS'];
@@ -97,22 +97,25 @@ function ObtenerError($session){
 				';
 				}else{					
 					$XMLDataTicket = $tickets["XMLData"]; 
-				
+					//GrabarArchivo($XMLDataTicket,'Ticket');
+				    $FK_CLIENTES = '';
 					$xml = simplexml_load_string($XMLDataTicket);
 					foreach($xml->ROWDATA->ROW as $f=>$val){
 						$FK_CLIENTES = $val['FK_CLIENTES'];
-						$Z_FK_CONTACTOS = $val['Z_FK_CONTACTOS'];
-						$Z_AREA_ASIGNADA = $val['Z_AREA_ASIGNADA'];
+						$Z_FK_CONTACTOS = $val['Z_FK_CONTACTOS'];//Z_FK_CONTACTOS = Solicitante.
+						$Z_AREA_ASIGNADA = $val['Z_AREA_ASIGNADA'];//Z_ASIGNADO_A
 						$Z_ASIGNADO_A = $val['Z_ASIGNADO_A'];
 						$Z_ESTADO = $val['Z_ESTADO'];
 						$DES_CLI = $val['DES_CLI'];
+						$Z__FK_GRUPOS = $val['Z__FK_GRUPOS'];//Z__FK_GRUPOS
+						$DESCRIPCION = $val['DESCRIPCION'];//DESCRIPCION
 					}
 					if($FK_CLIENTES == ""){
 					  echo '<div class="alert alert-info alert-dismissible fade in" role="alert">
 								  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								  <h4>Información</h4>
 								  <p>Parece no haber tickets generados con el número '.$ticket.' para la empresa '.$FK_ERP_EMPRESAS.'.</p>
-								  <p><small>Si considera que es un error comuníquese con la mesa de ayuda al (011)4770-9200</small></p>
+								  <p><small>Si considera que es un error comuníquese con la mesa de ayuda al (011)4779-9200</small></p>
 								  <hr>
 									<p>
 										<button class="button" type="button" onclick="MostrarForm()">
@@ -123,12 +126,13 @@ function ObtenerError($session){
 					}else{
 							echo '
 								<div class="login-box col-md-6">
-									<div><strong>Bienvenido '.$Z_FK_CONTACTOS.'</strong></div>
+									<div><strong>'.$DESCRIPCION.'</strong></div>
 										<div>
 											<p>Empresa: '.$FK_ERP_EMPRESAS.'</p>
 										<hr>
-										<p>Área asignada: '.$Z_AREA_ASIGNADA.'</p>
+										<p>Área asignada: '.$Z__FK_GRUPOS.'</p>
 										<p>Agente asignado: '.$Z_ASIGNADO_A.'</p>
+										<p>Solicitante: '.$Z_FK_CONTACTOS.'</p>
 										<p>Estado: '.$Z_ESTADO.'</p>
 										<textarea class="form-control" rows="15">'.$DES_CLI.'</textarea>
 											<p>

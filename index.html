@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8">	
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Amper theme</title>
     <meta name="description" content="customer support platform">
@@ -51,6 +51,24 @@
 	}
 	#mensaje2{
 		display: none;
+	}
+	#page2{
+		display: none;
+	}
+	#central{
+		background: url(img/512x512-trans.png)no-repeat;
+		margin:0px auto;
+		text-align:center;	
+	}
+	#img {
+    vertical-align:middle;
+	}
+	#clientLogin{
+		text-align: center;
+		align: center;
+	}
+	#loadingemail{
+		display:none;
 	}
 	</style>
 	
@@ -105,11 +123,18 @@
 			 }); 
 			})
 
+		function Reintentar(){
+		    $('#loadingemail').hide();
+			$('#emailinfo').hide();
+			$('#nuevo').show();
+		}
 		function MostrarForm(){
-		    $('#resultado').hide();
+			$('#page1').hide();
+			$('#resultado').hide();
+			$('#page2').show();
 			$('#formulario').show();
 			leerStorage();
-		}
+		}		
 		</script>	
 </head>
 <body onload="onBodyLoad()">
@@ -148,7 +173,45 @@
 					<div class="col-md-12"></div>
 				</div>
 			</div>
-			<div class="container"> 
+
+			<div class="container" id="page1"> 
+				<div id="central" class="row"> 
+					<div class="col-md-12" > 
+						<div class="page-title">   
+						<h1>¡Te damos la bienvenida!</h1>
+						<p>Vamos a requerir <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> un solo dato.</p>
+						</div>				
+						
+						<form class="form-group"  onsubmit="return submitForm()" action="http://www.leocondori.com.ar/app/ticket/valida_mail.php" method="post" id="ValidarE" name="ValidarE">          
+						<div id="emailinfo"></div>
+						<div id="loadingemail">cargando....</div>
+						
+							<div class="row" id="nuevo">
+								<div class="login-box col-md-6">
+									<div><strong></strong></div>
+									<div>
+										<label for="emailNew">ingresá tu email y lo vamos a validar</label>
+										<input class="form-control input-lg" id="emailNew" placeholder="ej. peter@mail.com" type="text" name="emailNew" size="30" title="El email es obligatorio" required>
+										<p class="help-block"><i>Solamente te vamos a pedir este dato para verificar la empresa a la pertenecés.</i></p>
+									</div>
+									<div>
+									<p>
+										<button class="btn btn-primary btn-lg" id="bValidar" onclick="ValidoUsuario()" class="button">Validar</button>
+									</p>
+									</div>
+								</div>
+							</div>
+						</form>					
+					<br>
+					<p style="margin:0px 15px 40px 15px;">
+					Si usted no está dado de alta deberá registrarse <a href="http://itris.com.ar/site/acceso-a-tickets/" target="_blank"> aquí </a></p>
+
+					</div>
+				</div>
+			</div> 
+
+<!--//////////////////////////// PAGE 2 //////////////////////////////////-->			
+			<div class="container" id="page2"> 
 				<div class="row"> 
 					<div class="col-md-12"> 
 					<div class="page-title">   
@@ -156,7 +219,7 @@
 					<p>Verifique el estado de su ticket</p>
 					</div>
 				
-					<form class="form-group" onsubmit="return submitForm()" action="http://www.leocondori.com.ar/app/ticket/status.php" method="post" id="clientLogin" name="clientLogin">          
+					<form class="form-group" action="http://www.leocondori.com.ar/app/ticket/status.php" method="post" id="clientLogin" name="clientLogin">          
                         <div class="row" id="formulario">
 							<div class="login-box col-md-6">
 								<div><strong></strong></div>
@@ -165,20 +228,15 @@
 								<div id="mensaje1"><span class="label label-warning">El email no puede estar vacío.</span></div>
 								<div>
 									<label for="ticketno">Número de Ticket:</label>
-									<input class="form-control" id="ticketno" type="text" name="ticketno" pattern=".{5,}" maxlength="5" placeholder="ej. 51243" Title="El número de ticket es obligatorio y debe contener 5 números" required>
+									<input class="form-control" type="number" min="00001" max="99999" id="ticketno" name="ticketno" placeholder="ej. 51243" Title="El número de ticket es obligatorio y debe contener 5 números" required>
 									<div id="mensaje2"><span class="label label-warning">El número de novedad debe tener un valor.</span></div>
 								</div>
 								<div>
 								<p>
-									<button type="submit" id="bEnviar" value="submit" class="button">Consultar</button>
+									<button type="submit" id="bEnviar" value="submit" class="btn btn-primary btn-lg">Consultar</button>
 								</p>
 								</div>
 							</div>
-							<!--<div class="col-md-6">
-							<div class="instructions">
-								<h3> Have an account with us? </h3>
-									<a href="login.html">Sign In</a> or <a href="account.html?do=create"> register for an account </a> to access all your tickets.                </div>
-							</div>-->
 						</div>
 						<div id="resultado"></div>
 					</form>
@@ -241,7 +299,34 @@
 
 	<!--DATOS PERSONALES Envia datos a otra página y devuelve resultado-->
 	<script src="js/jquery-1.10.2.js"></script>	
-	<!--<script language="javascript" src="js/jquery-1.3.min.js"></script>-->
+	<!-- EMAIL -->
+		<script language="javascript">
+		  $(document).ready(function() {
+			   $(document).ajaxStart(function() {
+			   $('#nuevo').hide();
+			   $('#emailinfo').hide();
+			   $('#loadingemail').fadeIn();
 
+				}).ajaxStop(function() {
+				$('#nuevo').hide();
+				$('#emailinfo').fadeIn('slow');
+				});
+		  $('#form, #fat, #ValidarE').submit(function() {
+				$.ajax({
+					type: 'post',
+					url: $(this).attr('action'),
+					data: $(this).serialize(),
+					success: function(data) {
+					$('#loadingemail').hide();
+					$('#emailinfo').fadeIn('slow');
+					$('#loading').hide();
+					$('#overlay').hide();			
+					$('#emailinfo').html(data);
+					}
+				})  
+			return false;
+			 }); 
+			})
+		</script>
 </body>
 </html>

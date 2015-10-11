@@ -174,7 +174,7 @@ function cargaDatosSuccess(tx, results){
 */
 
 function submitForm(){
-	var user = $("[name='email']").val();
+	var user = $("[name='emailNew']").val();
 	window.localStorage.setItem("usuario", user);	
 	return false;
 }
@@ -183,26 +183,37 @@ function leerStorage(){
      var usuario = window.localStorage.getItem("usuario");
 
 	  if(usuario == null){
+		  $('#page1').show();
+		  $('#page2').hide();
 		  //var selector = $('#user');
 		  $('#user').html('<label for="email">E-Mail: </label>' +
 							'<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email"' + 
 							'size="30" title="El email es obligatorio" required>');
 		  //var userPanel=$('#userPanel');
-		  $('#userPanel').html('<p><small><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Usuario desconocido</small></p>');
+		  $('#userPanel').html('<p><small><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Usuario no registrado</small></p>');
 		  					
 		  }else{
+			  $('#page1').hide();
+     		  $('#page2').show();
    		       //var selector=$('#user');
-				$('#user').html('<label for="email">E-Mail: </label>' +
-								'<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="text" name="email"' + 
-								'size="30" value=" ' + usuario + '" title="El email es obligatorio" readonly required>');
+				$('#user').html('<input class="form-control" id="email" placeholder="ej. peter@mail.com" type="hidden" name="email"' + 
+								'size="30" value="' + usuario + '" title="El email es obligatorio" readonly required>');
 
 		  	  //var userPanel=$('#userPanel');
-			    $('#userPanel').html('<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> | <small> ' + usuario + ' </small>' + 
+			    $('#userPanel').html('<p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> | <small> ' + usuario + ' </small>' + 
 							    '<button class="btn btn-info btn-xs" type="button" onclick="BorrarStorage()" class="button">' +
-							    '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> </button></p>');							  
+							    '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> restaurar</button></p>');							  
 			  }	  	
 	}
+
 function BorrarStorage(){
+		if( confirm("Está a punto de resetear la aplicación. ¿Realmente desea desvincular su email de esta aplicación?") )
+					{
+						  Confirmado();
+					}
+	}	
+	
+function Confirmado(){
     	window.localStorage.removeItem("usuario");
 		window.location.href = "index.html";
 	}		

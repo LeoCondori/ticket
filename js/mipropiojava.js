@@ -200,7 +200,7 @@ function leerStorage(){
 								'size="30" value="' + usuario + '" title="El email es obligatorio" readonly required>');
 
 		  	  //var userPanel=$('#userPanel');
-			    $('#userPanel').html('<p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> | <small> ' + usuario + ' </small>' + 
+			    $('#userPanel').html('<p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> <small> ' + usuario + ' </small>' + 
 							    '<button class="btn btn-info btn-xs" type="button" onclick="BorrarStorage()" class="button">' +
 							    '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> restaurar</button></p>');							  
 			  }	  	

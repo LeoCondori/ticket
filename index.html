@@ -52,6 +52,9 @@
 	#mensaje2{
 		display: none;
 	}
+	#mensaje3{
+		display: none;
+	}	
 	#page2{
 		display: none;
 	}
@@ -71,6 +74,21 @@
 		display:none;
 	}
 	</style>
+
+<!-- Valido el campo email -->
+  <script>  
+	$(document).ready(function(){	
+		$("#bValidar").click(function(){
+			var email = $("#emailNew").val();
+			if(email == ""){	
+				$("#mensaje3").fadeIn();
+				$("#mensaje3").fadeOut(6500);
+				return false;
+				}		
+		});	
+	});
+  </script>		
+	
 	
   <script>  
 	$(document).ready(function(){	
@@ -192,6 +210,7 @@
 									<div>
 										<label for="emailNew">ingresá tu email y lo vamos a validar</label>
 										<input class="form-control input-lg" id="emailNew" placeholder="ej. peter@mail.com" type="text" name="emailNew" size="30" title="El email es obligatorio" required>
+										<div id="mensaje3"><span class="label label-warning">El email no puede estar vacío.</span></div>
 										<p class="help-block"><i>Solamente te vamos a pedir este dato para verificar la empresa a la pertenecés.</i></p>
 									</div>
 									<div>

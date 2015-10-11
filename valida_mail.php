@@ -12,6 +12,7 @@ function GrabarArchivo($XMLData,$nombre){
 							fwrite($fp, $XMLData. PHP_EOL);
 							fclose($fp);	
 						}
+						
 require_once('lib/nusoap.php');	
 	$client = new nusoap_client("http://itris.no-ip.com:85/ITSWS/ItsCliSvrWS.asmx?WSDL",true);
 	$sError = $client->getError();

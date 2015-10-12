@@ -17,7 +17,6 @@ function mkLog(text){
 function onBodyLoad(){
 	//mkLog("Ejecuté el onBodyLoad");
 	document.addEventListener("deviceready", onDeviceReady, false);
-	menuDiv = document.querySelector("#menu");
 }
 
 function onDeviceReady(){
@@ -48,31 +47,14 @@ function onDeviceReady(){
 
 // Función activada. Botón Menú.
 function onMenuKeyDown() {
-	alert('No hay opciones de menu disponible por el momento.');
-
-		//var menu = $('#menu');
-		/*$('#menu').html('<ul class="list-group">' +
-  							'<li class="list-group-item">Cras justo odio</li>' +
-						    '<li class="list-group-item">Dapibus ac facilisis in</li>' +
-	  						'<li class="list-group-item">Morbi leo risus</li>' +
-  							'<li class="list-group-item">Porta ac consectetur ac</li>' +
-	  						'<li class="list-group-item">Vestibulum at eros</li>' +
-						'</ul>');*/
-	 /*
-	 if(menuOpen) {
-                    console.log("close the menu");
-                    menuDiv.style.display="none";
-                    menuOpen = false;
-                }else{
-                        console.log("open the menu");
-                        menuDiv.style.display="block";
-                        menuOpen = true;
-                }					
-	  */					
-    }
+	//alert('No hay opciones de menu disponible por el momento.');					
+		  $('#page1').Hide();
+		  $('#page2').Hide();
+		  $('#page3').Show();    
+	}
 
 function onBackKeyDown() {
-            if( confirm("Realmente desea salir de la aplicación? Para navegar por esta app utilice los enlaces internos.") )
+            if( confirm("Para navegar por esta app utilice los enlaces internos. ¿Realmente desea salir de la aplicación? ") )
             {
                   navigator.app.exitApp();
             }
@@ -183,6 +165,7 @@ function leerStorage(){
      var usuario = window.localStorage.getItem("usuario");
 
 	  if(usuario == null){
+		  $('#page3').hide();
 		  $('#page1').show();
 		  $('#page2').hide();
 		  //var selector = $('#user');
@@ -193,6 +176,7 @@ function leerStorage(){
 		  $('#userPanel').html('<p><small><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Usuario no registrado</small></p>');
 		  					
 		  }else{
+			  $('#page3').hide();
 			  $('#page1').hide();
      		  $('#page2').show();
    		       //var selector=$('#user');
@@ -200,9 +184,10 @@ function leerStorage(){
 								'size="30" value="' + usuario + '" title="El email es obligatorio" readonly required>');
 
 		  	  //var userPanel=$('#userPanel');
-			    $('#userPanel').html('<p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> <small> ' + usuario + ' </small>' + 
-							    '<button class="btn btn-info btn-xs" type="button" onclick="BorrarStorage()" class="button">' +
-							    '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> restaurar</button></p>');							  
+			    $('#userPanel').html('<p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> <small> ' + usuario + ' </small></p>');
+				
+				$('#emailContac').html('<label for="recipient-name" class="control-label">Email:</label>' +
+                                       '<input type="text" class="form-control" id="recipient-name" value="'+ usuario +'" >');											  
 			  }	  	
 	}
 

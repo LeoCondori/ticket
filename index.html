@@ -27,8 +27,7 @@
 
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
+
 	
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
@@ -58,8 +57,12 @@
 	#page2{
 		display: none;
 	}
-	#central{
-		background: url(img/512x512-trans.png)no-repeat;
+	#page1{
+		background: url(img/512x512-trans.png) no-repeat center center;
+		display:block;
+		align: center;
+		margin-left: auto;
+		margin-right: auto;	
 		margin:0px auto;
 		text-align:center;	
 	}
@@ -151,9 +154,25 @@
 			$('#resultado').hide();
 			$('#page2').show();
 			$('#formulario').show();
+			submitForm();
 			leerStorage();
 		}		
-		</script>	
+		</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#myModal").on('show.bs.modal', function(event){
+        var button = $(event.relatedTarget);  // Button that triggered the modal
+        var titleData = button.data('title'); // Extract value from data-* attributes
+        $(this).find('.modal-title').text(titleData + ' Form');
+    });
+});
+</script>
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+</style>		
 </head>
 <body onload="onBodyLoad()">
 
@@ -188,7 +207,7 @@
 		<div id="content">
 			<div class="container">
 				<div class="row"> 
-					<div class="col-md-12"></div>
+					<div class="col-md-12" id="parametros"></div>
 				</div>
 			</div>
 
@@ -199,8 +218,8 @@
 						<h1>¡Te damos la bienvenida!</h1>
 						<p>Vamos a requerir <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> un solo dato.</p>
 						</div>				
-						
-						<form class="form-group"  onsubmit="return submitForm()" action="http://www.leocondori.com.ar/app/ticket/valida_mail.php" method="post" id="ValidarE" name="ValidarE">          
+						<!--onsubmit="return submitForm()"-->
+						<form class="form-group"  action="http://www.leocondori.com.ar/app/ticket/valida_mail.php" method="post" id="ValidarE" name="ValidarE">          
 						<div id="emailinfo"></div>
 						<div id="loadingemail">cargando....</div>
 						
@@ -211,7 +230,7 @@
 										<label for="emailNew">ingresá tu email y lo vamos a validar</label>
 										<input class="form-control input-lg" id="emailNew" placeholder="ej. peter@mail.com" type="text" name="emailNew" size="30" title="El email es obligatorio" required>
 										<div id="mensaje3"><span class="label label-warning">El email no puede estar vacío.</span></div>
-										<p class="help-block"><i>Solamente te vamos a pedir este dato para verificar la empresa a la pertenecés.</i></p>
+										<p class="help-block"><i>Solamente te vamos a pedir este dato para verificar la empresa a la que pertenecés.</i></p>
 									</div>
 									<div>
 									<p>
@@ -261,52 +280,120 @@
 					</form>
 					<br>
 					<p style="margin:0px 15px 40px 15px;">
-					Si usted no está dado de alta deberá registrarse <a href="http://itris.com.ar/site/acceso-a-tickets/" target="_blank"> aquí </a></p>
+					Si usted no está dado de alta deberá registrarse http://itris.com.ar/site/acceso-a-tickets/ </p>
 
 					</div>
 				</div>
-			</div>        
+			</div>
+
+<!--//////////////////////////// PAGE 3 //////////////////////////////////-->				
+			<div class="container" id="page3"> 
+				<div class="row"> 
+					<div class="col-md-12"> 
+						<div class="page-title">   
+							<h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Administrador del sistema</h1>
+							<p></p>
+						</div>
+					<br>
+					<ol class="breadcrumb">
+					  <li><a href="#">General</a></li>
+					  <!--<li><a href="#">Library</a></li>-->
+					  <li class="active">Contacto</li>
+					</ol>
+					
+					<!--<button type="button" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Ayuda</button>-->
+					<button type="button" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#myModal" data-title="Feedback">
+						<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Contacto
+					</button>
+					
+					<br><hr>
+					<ol class="breadcrumb">
+					  <li><a href="#">General</a></li>
+					  <li><a href="#">Parámetros</a></li>
+					  <li class="active">Conexión</li>
+					</ol>					
+					<button type="button" class="btn btn-default btn-lg btn-block" onclick="checkConnection()"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Verificar conexión</button>
+					<button type="button" class="btn btn-danger btn-lg btn-block" onclick="BorrarStorage()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Reiniciar</button>
+					<p style="margin:0px 15px 40px 15px;"></p>
+					</div>
+					<hr>
+<!-- Button HTML (to Trigger Modal)
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-title="Feedback">Feedback</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-title="Report Error">Report Error</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-title="Contact Us">Contact Us</button>
+-->	
+				</div>
+			
+    <!-- Modal HTML -->
+<!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Soporte cliente</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group" id="emailContac">
+                            <!--Esto va a ser rellenado desde phonegap-->
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Mensaje:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+			</div>
+<!--FIN PAGE0s -->			
 		</div>
 	</div>
 
     <!-- Editable section  -->
 
     <div class="company-info">
-        <div class="container"><div class="row">
-            <div class="contact-info">
-                <h3> Itris Software </h3>
-                <p> 
-                    Beruti 4583 <br>
-                    Buenos Aires, Capital Federal<br>
-                    Argentina
-                </p>
-
-                <div> <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span><a href="tel:01147799200">(011)4779-9200</a> </span>  <span> soportecliente@itris.com.ar </span></div> 
-            </div>
-
-            <div class="social-icons">
-                <ul>
-                    <!--<li> <a href="#"> <i class="icon-facebook"></i> </a> </li>-->
-                    <li> <a href="https://twitter.com/itrissoftware" target="_blank"> <i class="icon-twitter"></i> </a> </li>
-                    <!--<li> <a href="#"> <i class="icon-google-plus"></i> </a> </li>-->                        
-                    <!--<li> <a href="#"> <i class="icon-linkedin"></i> </a> </li>-->
-                    <!--<li> <a href="#"> <i class="icon-github"></i> </a> </li>-->
-                </ul>
-            </div>
-
-        </div></div>
+        <div class="container">
+			<div class="row">
+				<div class="contact-info">
+					<h3> Itris Software </h3>
+					<p> 
+						Beruti 4583 <br>
+						Buenos Aires, Capital Federal<br>
+						Argentina
+					</p>
+					<div> <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span><a href="tel:01147799200">(011)4779-9200</a> </span>  <span> soportecliente@itris.com.ar </span></div> 
+				</div>
+				<div class="social-icons">
+					<ul>
+						<!--<li> <a href="#"> <i class="icon-facebook"></i> </a> </li>-->
+						<li> <a href="https://twitter.com/itrissoftware" target="_blank"> <i class="icon-twitter"></i> </a> </li>
+						<!--<li> <a href="#"> <i class="icon-google-plus"></i> </a> </li>-->                        
+						<!--<li> <a href="#"> <i class="icon-linkedin"></i> </a> </li>-->
+						<!--<li> <a href="#"> <i class="icon-github"></i> </a> </li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
     </div>
 
    <!-- Editable section ends -->
 
     <div id="footer">
-        <div class="container"><div class="row"> 
-            <div class="col-md-12">
-                <p>Copyright &copy; 2015 Compañía General de Software - Todos los derechos reservados.</p>
-                <a id="poweredBy" href="http://itris.com.ar" target="_blank">Helpdesk software - powered by Itris Software</a>               
-            </div>
-
-        </div></div>
+        <div class="container">
+			<div class="row"> 
+				<div class="col-md-12">
+					<p>Copyright &copy; 2015 Compañía General de Software - Todos los derechos reservados.</p>
+					<a id="poweredBy" href="#">Helpdesk software - powered by Itris Software</a>               
+				</div>
+			</div>
+		</div>
     </div>
 
  </div> <!-- end wrapper -->
@@ -315,6 +402,10 @@
     <h4>Por favor espere!</h4>
     <p>Estamos resolviendo su consulta</p>
 </div>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 	<!--DATOS PERSONALES Envia datos a otra página y devuelve resultado-->
 	<script src="js/jquery-1.10.2.js"></script>	

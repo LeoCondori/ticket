@@ -26,7 +26,7 @@
 	<!-- Optional theme -->
 
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
 	
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
@@ -418,8 +418,8 @@ $(document).ready(function(){
 </div>
 	
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
 	<!--DATOS PERSONALES Envia datos a otra página y devuelve resultado-->
 	<script src="js/jquery-1.10.2.js"></script>	
@@ -473,7 +473,8 @@ $(document).ready(function(){
 					$('#loadingemail').hide();
 					$('#inbox').fadeIn('slow');
 					$('#loading').hide();
-					$('#overlay').hide();			
+					$('#overlay').hide();
+					$('#page2').show();
 					$('#inbox').html(data);
 					}
 				})  

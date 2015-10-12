@@ -201,8 +201,7 @@ function leerStorage(){
 		  	  //var userPanel=$('#userPanel');
 			    $('#userPanel').html('<p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> <small> ' + usuario + ' </small></p>');
 				
-				$('#emailContac').html('<label for="recipient-name" class="control-label">Email:</label>' +
-                                       '<input type="hidden" class="form-control" id="recipient-name" name="emailC" value="'+ usuario +'" >');
+				$('#emailContac').html('<input type="hidden" class="form-control" id="recipient-name" name="emailC" value="'+ usuario +'" >');
 				$('#reset').html('<button type="button" class="btn btn-danger btn-lg btn-block" onclick="BorrarStorage()"> ' +
 				                 '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Reiniciar</button>');					   											  
 			  }	  	

@@ -75,6 +75,7 @@ function OcultarMenu(){
 			  $('#page1').hide();	  
 			  $('#container').show();
 		  	  $('#page2').show();
+			  $('#formulario').show();
 			  }
 		  		  	
 	}	

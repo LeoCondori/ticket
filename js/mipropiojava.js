@@ -70,7 +70,7 @@ function OcultarMenu(){
 	}	
 
 function onBackKeyDown() {
-            if( confirm("Realmente desea salir de la aplicación? Para navegar por esta app utilice los enlaces internos.") )
+            if( confirm("Para navegar por esta app utilice los enlaces internos. ¿Realmente desea salir de la aplicación?") )
             {
                   navigator.app.exitApp();
             }

@@ -456,12 +456,8 @@ $(document).ready(function(){
 		<script language="javascript">
 		  $(document).ready(function() {
 			   $(document).ajaxStart(function() {
-			   $('#nuevo').hide();
-			   $('#inbox').hide();
 			   $('#loadingemail').hide();
-
 				}).ajaxStop(function() {
-				//$('#nuevo').hide();
 				$('#inbox').fadeIn('slow');
 				});
 		  $('#form, #fat, #massage').submit(function() {
@@ -470,13 +466,10 @@ $(document).ready(function(){
 					url: $(this).attr('action'),
 					data: $(this).serialize(),
 					success: function(data) {
-					$('#loadingemail').hide();
-					$('#inbox').fadeIn('slow');
-					$('#loading').hide();
-					$('#overlay').hide();
-					//$('#page2').show();
-					$('#inbox').html(data);
-					}
+											$('#loading').hide();
+											$('#overlay').hide();
+											$('#inbox').html(data);
+											}
 				})  
 			return false;
 			 }); 

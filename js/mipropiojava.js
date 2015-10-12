@@ -48,13 +48,17 @@ function onDeviceReady(){
 // Función activada. Botón Menú.
 function onMenuKeyDown() {
 	//alert('No hay opciones de menu disponible por el momento.');					
-		  $('#page1').Hide();
-		  $('#page2').Hide();
-		  $('#page3').Show();    
+    MostrarMenu();
 	}
 
+function MostrarMenu(){
+		  $('#page1').hide();
+		  $('#page2').hide();
+		  $('#page3').show();	
+	}	
+
 function onBackKeyDown() {
-            if( confirm("Para navegar por esta app utilice los enlaces internos. ¿Realmente desea salir de la aplicación? ") )
+            if( confirm("Realmente desea salir de la aplicación? Para navegar por esta app utilice los enlaces internos.") )
             {
                   navigator.app.exitApp();
             }

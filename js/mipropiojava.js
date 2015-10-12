@@ -64,9 +64,19 @@ function MostrarMenu(){
 	}	
 
 function OcultarMenu(){
-		  $('#container').show();
 		  $('#page3').hide();
-		  $('#page2').show();		  	
+	      var usuario = window.localStorage.getItem("usuario");
+		  if(usuario == null){
+			  $('#container').show();
+		  	  $('#page2').hide();
+			  $('#page1').show();
+			  
+			  }else{
+			  $('#page1').hide();	  
+			  $('#container').show();
+		  	  $('#page2').show();
+			  }
+		  		  	
 	}	
 
 function onBackKeyDown() {

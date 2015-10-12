@@ -324,7 +324,7 @@ $(document).ready(function(){
 					  <li class="active">Conexión</li>
 					</ol>					
 					<button type="button" class="btn btn-primary btn-lg btn-block" onclick="checkConnection()"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Verificar conexión</button>
-					<button type="button" class="btn btn-danger btn-lg btn-block" onclick="BorrarStorage()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Reiniciar</button>
+					<div id="reset"><!--Lo rellena phonegap dinámicamente--></div>
 					<p style="margin:0px 15px 40px 15px;"></p>
 					</div>
 					<br><hr>
@@ -432,7 +432,7 @@ $(document).ready(function(){
 
 				}).ajaxStop(function() {
 				$('#nuevo').hide();
-				$('#inbox').fadeIn('slow');
+				$('#loadingemail').fadeIn('slow');
 				});
 		  $('#form, #fat, #ValidarE').submit(function() {
 				$.ajax({
@@ -440,10 +440,10 @@ $(document).ready(function(){
 					url: $(this).attr('action'),
 					data: $(this).serialize(),
 					success: function(data) {
-					$('#inbox').fadeIn('slow');
+					$('#loadingemail').fadeIn('slow');
 					$('#loading').hide();
 					$('#overlay').hide();			
-					$('#inbox').html(data);
+					$('#loadingemail').html(data);
 					}
 				})  
 			return false;
@@ -456,24 +456,24 @@ $(document).ready(function(){
 		  $(document).ready(function() {
 			   $(document).ajaxStart(function() {
 			   $('#nuevo').hide();
-			   $('#emailinfo').hide();
+			   $('#inbox').hide();
 			   $('#loadingemail').hide();
 
 				}).ajaxStop(function() {
 				//$('#nuevo').hide();
-				$('#emailinfo').fadeIn('slow');
+				$('#inbox').fadeIn('slow');
 				});
-		  $('#form, #fat, #ValidarE').submit(function() {
+		  $('#form, #fat, #massage').submit(function() {
 				$.ajax({
 					type: 'post',
 					url: $(this).attr('action'),
 					data: $(this).serialize(),
 					success: function(data) {
 					$('#loadingemail').hide();
-					$('#emailinfo').fadeIn('slow');
+					$('#inbox').fadeIn('slow');
 					$('#loading').hide();
 					$('#overlay').hide();			
-					$('#emailinfo').html(data);
+					$('#inbox').html(data);
 					}
 				})  
 			return false;

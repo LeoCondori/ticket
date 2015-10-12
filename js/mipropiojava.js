@@ -52,9 +52,20 @@ function onMenuKeyDown() {
 	}
 
 function MostrarMenu(){
-		  $('#page1').hide();
-		  $('#page2').hide();
-		  $('#page3').show();	
+		  $('#container').hide();
+          var usuario = window.localStorage.getItem("usuario");
+		  $('#page3').show();
+		  
+     	  if(usuario == null){
+					$('#message').hide();  
+			  }else{
+					$('#message').show();	  
+				  }		  	
+	}	
+
+function OcultarMenu(){
+		  $('#container').show();
+		  $('#page3').hide();	
 	}	
 
 function onBackKeyDown() {

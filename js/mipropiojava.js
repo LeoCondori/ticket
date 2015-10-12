@@ -65,7 +65,8 @@ function MostrarMenu(){
 
 function OcultarMenu(){
 		  $('#container').show();
-		  $('#page3').hide();	
+		  $('#page3').hide();
+		  $('#page2').show();		  	
 	}	
 
 function onBackKeyDown() {
